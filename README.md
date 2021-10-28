@@ -1,1 +1,1 @@
-# Black Liierman Portfolio Allocation
+# Black Litterman Portfolio Allocation
