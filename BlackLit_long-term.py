@@ -60,7 +60,7 @@ delta = black_litterman.market_implied_risk_aversion(market_prices)
 
 plotting.plot_covariance(S, plot_correlation=True);
 
-market_prior = black_litterman.market_implied_prior_returns(mcaps, delta, S, risk_free_rate=0.0)
+market_prior = black_litterman.market_implied_prior_returns(mcaps, delta, S, risk_free_rate=0.003)
 market_prior
 
 market_prior.plot.barh(figsize=(10,5));
@@ -218,7 +218,7 @@ sector_upper = {
 ef = EfficientFrontier(ret_bl, S_bl)
 ef.add_sector_constraints(sector_mapper, sector_lower, sector_upper)
 ef.add_objective(objective_functions.L2_reg, gamma=0.05)
-ef.max_sharpe(risk_free_rate=0.0)
+ef.max_sharpe(risk_free_rate=0.003)
 weights = ef.clean_weights()
 weights
 
@@ -227,7 +227,7 @@ da = DiscreteAllocation(weights, prices.iloc[-1], total_portfolio_value=30000000
 alloc, leftover = da.lp_portfolio()
 print(f"Leftover: ${leftover:.2f}")
 alloc
-ef.portfolio_performance(verbose=True, risk_free_rate=0.0)
+ef.portfolio_performance(verbose=True, risk_free_rate=0.003)
 
 num_small = len([k for k in weights if weights[k] <= 1e-4])
 print(f"{num_small}/{len(ef.tickers)} tickers have zero weight")
