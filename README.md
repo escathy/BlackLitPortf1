@@ -1,1 +1,1 @@
-# Black Litterman Portfolio Allocation
+# Black Litterman Portfolio Allocation for MIPC
